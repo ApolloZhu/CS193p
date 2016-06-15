@@ -12,13 +12,13 @@ class FaceViewController: UIViewController {
 
     @IBOutlet weak var faceView: FaceView!{didSet{UpdateUI()}}
 
-    var expression = FacialExpression(eyes: .Open, eyeBrows: .Forrowed, mouth: .Smile){didSet{UpdateUI()}}
+    var expression = FacialExpression(eyes: .open, eyeBrows: .forrowed, mouth: .smile){didSet{UpdateUI()}}
 
 
-    private let mouthCurvatures: [FacialExpression.Mouth:CGFloat] = [.Frown:-1, .Grin:0.5, .Smile:1,.Smirk:-0.5,.Neutral:0]
-    private let eyeBrowTilts: [FacialExpression.EyeBrows:CGFloat] = [.Relaxed:0.5, .Forrowed: -0.5, .Normal:0]
+    private let mouthCurvatures: [FacialExpression.Mouth:CGFloat] = [.frown:-1, .grin:0.5, .smile:1,.smirk:-0.5,.neutral:0]
+    private let eyeBrowTilts: [FacialExpression.EyeBrows:CGFloat] = [.relaxed:0.5, .forrowed: -0.5, .normal:0]
     private func UpdateUI(){
-        if expression.eyes == .Open{
+        if expression.eyes == .open{
             faceView.eyesOpen = true
         } else {
             faceView.eyesOpen = false

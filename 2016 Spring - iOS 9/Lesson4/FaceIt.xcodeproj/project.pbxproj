@@ -14,7 +14,6 @@
 		52A9EDE81D0DBAE8005790B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A9EDE01D0DBAE8005790B3 /* Main.storyboard */; };
 		52A9EDE91D0DBAE8005790B3 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A9EDE21D0DBAE8005790B3 /* FaceView.swift */; };
 		52A9EDEA1D0DBAE8005790B3 /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A9EDE31D0DBAE8005790B3 /* FaceViewController.swift */; };
-		52A9EDEB1D0DBAE8005790B3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52A9EDE41D0DBAE8005790B3 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,11 +105,15 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = WWITDC;
 				TargetAttributes = {
 					52A9EDC21D0D9351005790B3 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 2H866F22W7;
+						DevelopmentTeamName = "Apollo Zhu (Personal Team)";
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -137,7 +140,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52A9EDEB1D0DBAE8005790B3 /* Info.plist in Resources */,
 				52A9EDE81D0DBAE8005790B3 /* Main.storyboard in Resources */,
 				52A9EDE61D0DBAE8005790B3 /* Assets.xcassets in Resources */,
 				52A9EDE71D0DBAE8005790B3 /* LaunchScreen.storyboard in Resources */,
@@ -269,10 +271,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FaceIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wwitdc.apollo.FaceIt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wwitdc.apollo.FaceIt1;
 				PRODUCT_NAME = FaceIt;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -280,10 +284,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FaceIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wwitdc.apollo.FaceIt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wwitdc.apollo.FaceIt1;
 				PRODUCT_NAME = FaceIt;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

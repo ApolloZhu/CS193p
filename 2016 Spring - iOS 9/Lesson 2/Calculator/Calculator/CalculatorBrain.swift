@@ -12,41 +12,41 @@ class CalculatorBrain{
 
     private var accumulator = 0.0
 
-    func setOperand(operand: Double) {
+    func setOperand(_ operand: Double) {
         accumulator = operand
     }
 
     private var operations : [String: Operation] = [
-        "π": Operation.Constant(M_PI),
-        "e": Operation.Constant(M_E),
-        "±": Operation.UnaryOperation({ -$0 }),
-        "√": Operation.UnaryOperation(sqrt),
-        "cos": Operation.UnaryOperation(cos),
-        "×": Operation.BinaryOperation({$0 * $1}),
-        "÷": Operation.BinaryOperation({$0 / $1}),
-        "+": Operation.BinaryOperation({$0 + $1}),
-        "−": Operation.BinaryOperation({$0 - $1}),
-        "=": Operation.Equals
+        "π": Operation.constant(M_PI),
+        "e": Operation.constant(M_E),
+        "±": Operation.unaryOperation({ -$0 }),
+        "√": Operation.unaryOperation(sqrt),
+        "cos": Operation.unaryOperation(cos),
+        "×": Operation.binaryOperation({$0 * $1}),
+        "÷": Operation.binaryOperation({$0 / $1}),
+        "+": Operation.binaryOperation({$0 + $1}),
+        "−": Operation.binaryOperation({$0 - $1}),
+        "=": Operation.equals
     ]
 
     enum Operation{
-        case Constant(Double)
-        case UnaryOperation((Double) -> Double)
-        case BinaryOperation((Double, Double) -> Double)
-        case Equals
+        case constant(Double)
+        case unaryOperation((Double) -> Double)
+        case binaryOperation((Double, Double) -> Double)
+        case equals
     }
 
-    func performOperation(symbol: String){
+    func performOperation(_ symbol: String){
         if let operation = operations[symbol]{
             switch operation {
-            case .Constant(let value):
+            case .constant(let value):
                 accumulator = value
-            case .UnaryOperation(let function):
+            case .unaryOperation(let function):
                 accumulator = function(accumulator)
-            case .BinaryOperation(let function):
+            case .binaryOperation(let function):
                 executeBinaryOperation()
                 pending = PendingBinaryOperationInfo(binaryOperation: function, firstOperand: accumulator)
-            case .Equals:
+            case .equals:
                 executeBinaryOperation()
             }
         }

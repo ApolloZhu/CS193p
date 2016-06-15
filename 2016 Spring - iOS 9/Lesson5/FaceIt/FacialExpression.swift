@@ -10,24 +10,24 @@ import Foundation
 
 struct FacialExpression{
     enum Eye: Int{
-        case Open, Close, Squinting
+        case open, close, squinting
     }
     enum EyeBrows: Int{
-        case Relaxed, Normal, Sorrowed
+        case relaxed, normal, sorrowed
         func moreRelaxedBrow() -> EyeBrows{
-            return EyeBrows(rawValue: rawValue - 1) ?? .Relaxed
+            return EyeBrows(rawValue: rawValue - 1) ?? .relaxed
         }
         func moreSorrowedBrow() -> EyeBrows{
-            return EyeBrows(rawValue: rawValue + 1) ?? .Sorrowed
+            return EyeBrows(rawValue: rawValue + 1) ?? .sorrowed
         }
     }
     enum Mouth: Int{
-        case Frown, Smirk, Neutral, Grin, Smile
+        case frown, smirk, neutral, grin, smile
         func sadderMouth() -> Mouth{
-            return Mouth(rawValue: rawValue - 1) ?? .Frown
+            return Mouth(rawValue: rawValue - 1) ?? .frown
         }
         func happierMouth() -> Mouth{
-            return Mouth(rawValue: rawValue + 1) ?? .Smile
+            return Mouth(rawValue: rawValue + 1) ?? .smile
         }
     }
     var eyes: Eye
