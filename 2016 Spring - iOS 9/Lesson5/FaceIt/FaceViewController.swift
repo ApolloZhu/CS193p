@@ -10,24 +10,28 @@ import UIKit
 
 class FaceViewController: UIViewController {
 
-    @IBOutlet weak var faceView: FaceView!{didSet{
-        update()
-        faceView.addGestureRecognizer(UIPinchGestureRecognizer(target: faceView, action: #selector(FaceView.changeScale(_:))))
-        let happierFaceExpression = UISwipeGestureRecognizer(target: self, action: #selector(FaceViewController.increaseHappiness))
-        happierFaceExpression.direction = .up
-        faceView.addGestureRecognizer(happierFaceExpression)
-        let sadderFaceExpression = UISwipeGestureRecognizer(target: self, action: #selector(FaceViewController.decreaseHappiness))
-        sadderFaceExpression.direction = .down
-        faceView.addGestureRecognizer(sadderFaceExpression)
-        faceView.addGestureRecognizer(UIRotationGestureRecognizer(target: self, action: #selector(FaceViewController.changeEyeBrow(_:))))
-        }}
+    @IBOutlet weak var faceView: FaceView!{
+        didSet{
+            update()
+            faceView.addGestureRecognizer(UIPinchGestureRecognizer(target: faceView, action: #selector(FaceView.changeScale(_:))))
+            let happierFaceExpression = UISwipeGestureRecognizer(target: self, action: #selector(FaceViewController.increaseHappiness))
+            happierFaceExpression.direction = .up
+            faceView.addGestureRecognizer(happierFaceExpression)
+            let sadderFaceExpression = UISwipeGestureRecognizer(target: self, action: #selector(FaceViewController.decreaseHappiness))
+            sadderFaceExpression.direction = .down
+            faceView.addGestureRecognizer(sadderFaceExpression)
+            faceView.addGestureRecognizer(UIRotationGestureRecognizer(target: self, action: #selector(FaceViewController.changeEyeBrow(_:))))
+        }
+    }
+
     func increaseHappiness(){
-        expression.mouth = expression.mouth.happierMouth()
+        expression.mouth = expression.mouth.happier()
     }
+
     func decreaseHappiness(){
-        expression.mouth = expression.mouth.sadderMouth()
-        ()
+        expression.mouth = expression.mouth.sadder()
     }
+
     @IBAction func toggleEyes(_ recognizer: UITapGestureRecognizer) {
         if recognizer.state == .ended{
             switch expression.eyes {
@@ -43,9 +47,9 @@ class FaceViewController: UIViewController {
     func changeEyeBrow(_ recognizer: UIRotationGestureRecognizer){
         if recognizer.state == .ended{
             if recognizer.rotation > 0{
-                expression.eyeBrows = expression.eyeBrows.moreRelaxedBrow()
+                expression.eyeBrows = expression.eyeBrows.moreRelaxed()
             } else {
-                expression.eyeBrows = expression.eyeBrows.moreSorrowedBrow()
+                expression.eyeBrows = expression.eyeBrows.moreSorrowed()
             }
             recognizer.rotation = 0
         }

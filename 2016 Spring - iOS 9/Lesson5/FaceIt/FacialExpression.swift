@@ -14,19 +14,19 @@ struct FacialExpression{
     }
     enum EyeBrows: Int{
         case relaxed, normal, sorrowed
-        func moreRelaxedBrow() -> EyeBrows{
+        func moreRelaxed() -> EyeBrows{
             return EyeBrows(rawValue: rawValue - 1) ?? .relaxed
         }
-        func moreSorrowedBrow() -> EyeBrows{
+        func moreSorrowed() -> EyeBrows{
             return EyeBrows(rawValue: rawValue + 1) ?? .sorrowed
         }
     }
     enum Mouth: Int{
         case frown, smirk, neutral, grin, smile
-        func sadderMouth() -> Mouth{
+        func sadder() -> Mouth{
             return Mouth(rawValue: rawValue - 1) ?? .frown
         }
-        func happierMouth() -> Mouth{
+        func happier() -> Mouth{
             return Mouth(rawValue: rawValue + 1) ?? .smile
         }
     }
